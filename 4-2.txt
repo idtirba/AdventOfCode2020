@@ -1159,9 +1159,9 @@ def hasValidFields?(passport)
       return false if !(value[value.length-2]=='i' && value[value.length-1]=='n') && !(value[value.length-2]=='c' && value[value.length-1]=='m')
       number = value[0..value.length-3].to_i
       if value[value.length-2]=='c' && value[value.length-1]=='m'
-        return false if number < 150 || number > 193
+        return false if !number.between?(150,193) 
       else
-        return false if number <59 || number > 76
+        return false if !number.between?(59,76)
       end
     end
     if x == 'hcl'
@@ -1181,7 +1181,7 @@ def hasValidFields?(passport)
       end
     end
   end
-  return true
+  true
 end
 
 input = input.collect{ |e|  e.gsub("\n", ' ').squeeze(' ')}
