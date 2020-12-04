@@ -1143,17 +1143,16 @@ def hasValidFields?(passport)
   nums = %w(0 1 2 3 4 5 6 7 8 9)
   passport.each_with_index do |x, index|
     next if index % 2 != 0
+    value = passport[index+1]
     if x == 'byr'
-      year = passport[index+1].to_i
-      return false if year < 1920 || year > 2002
+      return false if !value.to_i.between?(1920,2002)
     end
     if x == 'iyr'
-      year = passport[index+1].to_i
-      return false if year < 2010 || year > 2020
+      return false if !value.to_i.between?(2010,2020)
     end
     if x == 'eyr'
       year = passport[index+1].to_i
-      return false if year < 2020 || year >2030
+      return false if !value.to_i.between?(2020,2030)
     end
     if x == 'hgt'
       value = passport[index+1]
@@ -1166,7 +1165,6 @@ def hasValidFields?(passport)
       end
     end
     if x == 'hcl'
-      value = passport[index+1]
       return false if value[0] != '#'
       return false if value.length != 7
       value[1..value.length-1].downcase.split('').each do |c|
@@ -1174,11 +1172,9 @@ def hasValidFields?(passport)
       end
     end
     if x == 'ecl'
-      value = passport[index+1]
       return false if !goodEyes.include?(value)
     end
     if x == 'pid'
-      value = passport[index+1]
       return false if value.length != 9
       value.split('').each do |c|
         return false if !nums.include?(c)
