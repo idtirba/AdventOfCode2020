@@ -807,7 +807,7 @@ highest
 # optimized
 highest = 0
 
-=input.each do |n|
+input.each do |n|
   a = n.gsub(/F|L/, '0')
   a = a.gsub(/B|R/, '1')
   row = a[0..a.length-4].to_i(2)
