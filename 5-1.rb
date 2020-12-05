@@ -803,3 +803,17 @@ input.each do |n|
 end
 
 highest
+
+# optimized
+highest = 0
+
+=input.each do |n|
+  a = n.gsub(/F|L/, '0')
+  a = a.gsub(/B|R/, '1')
+  row = a[0..a.length-4].to_i(2)
+  col = a[a.length-3, a.length-1].to_i(2)
+  value = row * 8 + col
+  highest = value if value > highest
+end
+
+highest
