@@ -628,9 +628,7 @@ jmp +1".split(/\n/)
 
 input.each_with_index { |n, index| input[index] = n.split(' ') }
 
-indicesRun = []
 infiteLoop = false
-cursor = 0
 
 def executeLines(line, input, indicesRun, acc)
   return acc if indicesRun.include?(line)
@@ -651,4 +649,4 @@ def executeLines(line, input, indicesRun, acc)
   end
 end
 
-puts executeLines(0, input, indicesRun, 0).to_s
+puts executeLines(0, input, [], 0).to_s
