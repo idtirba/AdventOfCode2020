@@ -1013,11 +1013,11 @@ input.each_with_index do |n, index|
     break
   end
   window.push(n)
-  sum = window.inject(0){|sum,x| sum + x }
+  sum+=n
   if sum > brokenValue
     while sum > brokenValue do
+      sum-=window[0]
       window.delete_at(0)
-      sum = window.inject(0){|sum,x| sum + x }
     end
   end
 end
