@@ -1016,6 +1016,6 @@ input.each_with_index do |n, index|
   sum+=n
   while sum > brokenValue do
     sum-=window[0]
-    window.delete_at(0)
+    window.shift
   end
 end
