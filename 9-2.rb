@@ -1006,10 +1006,9 @@ brokenValue = 26134589
 window = []
 sum = 0
 
-input.each_with_index do |n, index|
+input.each do |n|
   if sum == brokenValue
-    window.sort!
-    puts window[0] + window[window.length-1]
+    puts window.min + window.max
     break
   end
   window.push(n)
