@@ -1014,10 +1014,8 @@ input.each_with_index do |n, index|
   end
   window.push(n)
   sum+=n
-  if sum > brokenValue
-    while sum > brokenValue do
-      sum-=window[0]
-      window.delete_at(0)
-    end
+  while sum > brokenValue do
+    sum-=window[0]
+    window.delete_at(0)
   end
 end
