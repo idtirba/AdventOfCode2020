@@ -50,18 +50,6 @@ p2 = %w(18
 13
 2).map{|x|x.to_i}
 
-# p1 = %w(9
-# 2
-# 6
-# 3
-# 1).map{|x|x.to_i}
-
-# p2 = %w(5
-# 8
-# 4
-# 7
-# 10).map{|x|x.to_i}
-
 require "set"
 
 def recursiveGame(p1, p2)
